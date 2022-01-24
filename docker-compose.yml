@@ -1,0 +1,22 @@
+
+version: "3.9"
+services:
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+  db:
+    container_name: postgres-database
+    image: postgres:13.4-alpine
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: pg
+      POSTGRES_PASSWORD: qwe
+      POSTGRES_DB: db
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+        reservations:
+          memory: 256M
